@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habitación - Les Gîtes du Siècle</title>
+  <link rel="icon" type="image/png" href="/assets/images/logo1.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <img src="/assets/images/logo.png" alt="Logo Les Gîtes du Siècle" class="logo">
+    <h1 class="site-title">Les Gîtes du Siècle</h1>
+    <select id="language-select">
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+  </header>
+
+  <nav>
+    <ul>
+        <li><a href="/es/index.html">Inicio</a></li>
+      <li><a href="/es/gite1.html">Alojamiento 1</a></li>
+      <li><a href="/es/gite2.html">Alojamiento 2</a></li>
+      <li><a href="/es/gite3.html">Habitación</a></li>
+      <li><a href="/es/contact.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Habitación independiente</h2>
+    <p>Descripción de la habitación con baño privado próximamente.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Les Gîtes du Siècle</p>
+  </footer>
+  
+  <script>
+    const langSelect = document.getElementById('language-select');
+    const pathParts = window.location.pathname.split('/');
+    const currentLang = pathParts[1];
+    if (["fr", "es", "en"].includes(currentLang)) {
+      langSelect.value = currentLang;
+    }
+  
+    langSelect.addEventListener('change', function () {
+      const newLang = this.value;
+      const currentPage = pathParts.slice(2).join('/') || 'index.html';
+      window.location.href = `/${newLang}/${currentPage}`;
+    });
+  </script>
+</body>
+</html>

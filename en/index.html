@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Les Gîtes du Siècle</title>
+  <link rel="icon" type="image/png" href="/assets/images/logo1.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <img src="/assets/images/logo.png" alt="Logo Les Gîtes du Siècle" class="logo">
+    <h1 class="site-title">Les Gîtes du Siècle</h1>
+    <select id="language-select">
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/en/index.html">Home</a></li>
+      <li><a href="/en/gite1.html">Lodge 1</a></li>
+      <li><a href="/en/gite2.html">Lodge 2</a></li>
+      <li><a href="/en/gite3.html">Room</a></li>
+      <li><a href="/en/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Section 1: Introduction -->
+    <section id="presentation">
+      <h2>Welcome to Les Gîtes du Siècle</h2>
+      <p>Our property consists of two spacious lodgings that can accommodate up to 8 people each, as well as an independent room with a private bathroom. Located in the heart of Ganges, our accommodations are accessible through charming suspended gardens that offer a green and peaceful setting, while being in the center of the city.</p>
+      <p>We offer rentals by the night or by the week, depending on your preferences. Address: 8 rue de l'Olivette, just a stone's throw from all amenities.</p>
+      <p>And to extend the pleasure, our family café welcomes you just three minutes on foot from the gîtes, for a pleasant moment with a coffee or a drink.</p>
+    </section>
+  
+    <!-- Section 2: Image of the exterior of the gîtes -->
+    <section id="image-exterieur">
+      <h3>Exterior view of the gîtes and the garden</h3>
+      <img src="/assets/images/jardin.jpeg" alt="View of the gîtes and their gardens" class="image"/>
+    </section>
+  
+    <!-- Section 3: About us -->
+    <section id="about-us">
+      <h3>About us</h3>
+      <p>Our family is delighted to welcome you to our gîtes and share with you a bit of our history and passion for hospitality. We will tell you more about our journey and values soon...</p>
+    </section>
+  </main>
+  
+
+  <footer>
+    <p>&copy; 2025 Les Gîtes du Siècle</p>
+  </footer>
+  
+  <script>
+    const langSelect = document.getElementById('language-select');
+    const pathParts = window.location.pathname.split('/');
+    const currentLang = pathParts[1];
+    if (["fr", "es", "en"].includes(currentLang)) {
+      langSelect.value = currentLang;
+    }
+  
+    langSelect.addEventListener('change', function () {
+      const newLang = this.value;
+      const currentPage = pathParts.slice(2).join('/') || 'index.html';
+      window.location.href = `/${newLang}/${currentPage}`;
+    });
+  </script>
+</body>
+</html>

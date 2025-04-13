@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Les Gîtes du Siècle</title>
+  <link rel="icon" type="image/png" href="/assets/images/logo1.png" />
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <img src="/assets/images/logo.png" alt="Logo Les Gîtes du Siècle" class="logo">
+    <h1 class="site-title">Les Gîtes du Siècle</h1>
+    <select id="language-select">
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/fr/index.html">Accueil</a></li>
+      <li><a href="/fr/gite1.html">Gîte 1</a></li>
+      <li><a href="/fr/gite2.html">Gîte 2</a></li>
+      <li><a href="/fr/gite3.html">Chambre</a></li>
+      <li><a href="/fr/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- Partie 1 : Présentation -->
+    <section id="presentation">
+      <h2>Bienvenue dans les Gîtes du Siècle</h2>
+      <p>Notre établissement est composé de deux gîtes spacieux pouvant accueillir jusqu’à 8 personnes chacun, ainsi que d’une chambre indépendante avec salle de bain privative. Situés en plein cœur de Ganges, nos hébergements sont accessibles par de charmants jardins suspendus qui offrent un cadre verdoyant et paisible, tout en étant au centre de la ville.</p>
+      <p>Nous proposons des locations à la nuit ou à la semaine, selon vos envies. L’adresse : 8 rue de l’Olivette, à deux pas de toutes les commodités.</p>
+      <p>Et pour prolonger le plaisir, notre café familial vous accueille à seulement trois minutes à pied des gîtes, pour un moment convivial autour d’un café ou d’un verre.</p>
+    </section>
+    
+    <!-- Partie 2 : Image de l'extérieur des gîtes -->
+    <section id="image-exterieur">
+      <h3>Vue extérieure des gîtes et du jardin</h3>
+      <img src="/assets/images/jardin.jpeg" alt="Vue des gîtes et de leurs jardins" class="image"/>
+    </section>
+    
+    <!-- Partie 3 : À propos de nous -->
+    <section id="about-us">
+      <h3>À propos de nous</h3>
+      <p>Notre famille est ravie de vous accueillir dans nos gîtes et de partager avec vous un peu de notre histoire et de notre passion pour l'hospitalité. Nous vous raconterons plus sur notre parcours et nos valeurs très bientôt...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Les Gîtes du Siècle</p>
+  </footer>
+  
+  <script>
+    const langSelect = document.getElementById('language-select');
+    const pathParts = window.location.pathname.split('/');
+    const currentLang = pathParts[1];
+    if (["fr", "es", "en"].includes(currentLang)) {
+      langSelect.value = currentLang;
+    }
+  
+    langSelect.addEventListener('change', function () {
+      const newLang = this.value;
+      const currentPage = pathParts.slice(2).join('/') || 'index.html';
+      window.location.href = `/${newLang}/${currentPage}`;
+    });
+  </script>
+  
+</body>
+</html>

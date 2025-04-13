@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lodge 2 - Les Gîtes du Siècle</title>
+  <link rel="icon" type="image/png" href="/assets/images/logo1.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <img src="/assets/images/logo.png" alt="Logo Les Gîtes du Siècle" class="logo">
+    <h1 class="site-title">Les Gîtes du Siècle</h1>
+    <select id="language-select">
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="/en/index.html">Home</a></li>
+      <li><a href="/en/gite1.html">Lodge 1</a></li>
+      <li><a href="/en/gite2.html">Lodge 2</a></li>
+      <li><a href="/en/gite3.html">Room</a></li>
+      <li><a href="/en/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- General Description of the Cottage -->
+    <section id="description">
+      <h2>Cottage 2</h2>
+      <p>This spacious cottage can accommodate up to 8 people. It has all the necessary comforts for a pleasant stay, with a magnificent view of the gardens and direct access to the shared facilities.</p>
+      
+      <h3>Amenities:</h3>
+      <ul>
+        <li>3 comfortable bedrooms</li>
+        <li>Large living room with fireplace</li>
+        <li>Fully equipped kitchen</li>
+        <li>Free Wi-Fi</li>
+        <li>Private bathroom for each bedroom</li>
+        <li>View of the garden</li>
+        <li>Private parking</li>
+      </ul>
+    </section>
+
+    <!-- Image Carousel -->
+    <section id="gallery">
+      <h3>Cottage 2 Gallery</h3>
+      <div class="slider-container">
+        <div class="slider">
+          <img src="/assets/images/gite1_1.jpg" alt="Cottage 1 - Exterior View" class="slider-image"/>
+          <img src="/assets/images/gite1_2.jpg" alt="Cottage 1 - Living Room" class="slider-image"/>
+          <img src="/assets/images/gite1_3.jpg" alt="Cottage 1 - Bedroom" class="slider-image"/>
+        </div>
+        <button class="slider-button prev" onclick="prevSlide()">&#10094;</button>
+        <button class="slider-button next" onclick="nextSlide()">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- Pricing Table -->
+    <section id="tarifs">
+      <h3>Prices</h3>
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">May - September</th>
+            <th colspan="2">October - April</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- May - September -->
+          <tr>
+            <td>1 night</td>
+            <td>100 €</td>
+            <td>1 night</td>
+            <td>80 €</td>
+          </tr>
+          <tr>
+            <td>3 nights</td>
+            <td>250 €</td>
+            <td>3 nights</td>
+            <td>210 €</td>
+          </tr>
+          <tr>
+            <td>Week</td>
+            <td>600 €</td>
+            <td>Week</td>
+            <td>500 €</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+</main>
+
+  <footer>
+    <p>&copy; 2025 Les Gîtes du Siècle</p>
+  </footer>
+  
+  <script>
+    const langSelect = document.getElementById('language-select');
+    const pathParts = window.location.pathname.split('/');
+    const currentLang = pathParts[1];
+    if (["fr", "es", "en"].includes(currentLang)) {
+      langSelect.value = currentLang;
+    }
+  
+    langSelect.addEventListener('change', function () {
+      const newLang = this.value;
+      const currentPage = pathParts.slice(2).join('/') || 'index.html';
+      window.location.href = `/${newLang}/${currentPage}`;
+    });
+  </script>
+   <script>
+    // JavaScript pour le carrousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider-image');
+
+    function showSlide(index) {
+      if (index < 0) {
+        currentSlide = slides.length - 1;
+      } else if (index >= slides.length) {
+        currentSlide = 0;
+      } else {
+        currentSlide = index;
+      }
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = (i === currentSlide) ? 'block' : 'none';
+      }
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    showSlide(currentSlide); // Initialiser le carrousel à la première image
+  </script>
+</body>
+</html>
